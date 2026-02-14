@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reminder Belajar Eky</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #1e1e2f, #2c3e50);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 30px;
+  border-radius: 15px;
+  text-align: center;
+  width: 320px;
+  backdrop-filter: blur(10px);
+}
+
+h1 {
+  margin-bottom: 10px;
+}
+
+button {
+  padding: 10px 15px;
+  margin: 8px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.start {
+  background-color: #00c896;
+  color: white;
+}
+
+.stop {
+  background-color: #ff4d4d;
+  color: white;
+}
+
+.status {
+  margin-top: 15px;
+  font-size: 14px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <h1>Reminder Web3 Eky 🚀</h1>
+  <p>Sesi 1: 16:00 - 18:00</p>
+  <p>Sesi 2: 20:00 - 22:00</p>
+
+  <button class="start" onclick="startReminder()">Aktifkan</button>
+  <button class="stop" onclick="stopReminder()">Matikan</button>
+
+  <div class="status" id="status">Status: Tidak Aktif</div>
+</div>
+
+<script>
+let interval;
+
+function startReminder() {
+  document.getElementById("status").innerHTML = "Status: Aktif 🔥";
+
+  interval = setInterval(function() {
+    let now = new Date();
+    let hours = now.getHours();
+    let minutes = now.getMinutes();
+
+    if ((hours === 16 || hours === 20) && minutes === 0) {
+      alert("WAKTUNYA BELAJAR WEB3 EKY 🚀🔥");
+    }
+  }, 60000);
+}
+
+function stopReminder() {
+  clearInterval(interval);
+  document.getElementById("status").innerHTML = "Status: Tidak Aktif ❌";
+}
+</script>
+
+</body>
+</html>
